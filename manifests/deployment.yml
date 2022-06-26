@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "vpn-8656"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "vpn-8656"
+  template:
+    metadata:
+      labels:
+        app: "vpn-8656"
+    spec:
+      containers:
+        - name: "vpn-8656"
+          image: "foxterimages.azurecr.io/vpn"
+          ports:
+          - containerPort: 30333
